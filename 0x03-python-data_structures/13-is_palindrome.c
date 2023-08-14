@@ -11,13 +11,13 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *cur = *head;
-	int tab[2048], i = 0, j = 0;
+	int tab[2048], n = 0, j = 0;
 
 	if (*head)
 	{
 		while (cur)
 		{
-			tab[i] = cur->n;
+			tab[n] = cur->n;
 			cur = cur->next;
 			i++;
 		}
