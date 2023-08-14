@@ -1,27 +1,34 @@
-#include <stdio.h>
-#include <Python.h>
+#include "lists.h"
+
 /**
- * print_python_list_info - shows info about Python lists
- * @p: object
+ * is_palindrome - checks if a linked list is a palindrome
  *
- * Return: 0
+ * @head: the head address of the linked list
+ *
+ * Return: 1 if it's a palindrome, 0 else
  */
-void print_python_list_info(PyObject *p)
+
+int is_palindrome(listint_t **head)
 {
-	long int list_size, a, i;
+	listint_t *cur = *head;
+	int tab[2048], n = 0, j = 0;
 
-	i = 0;
-	PyObject *obj;
-
-	list_size = PyList_Size(p);
-	a = ((PyListObject *)p)->allocated;
-
-	printf("[*] Size of the Python List = %ld\n", list_size);
-	printf("[*] Allocated = %ld\n", a);
-	while (i < list_size)
+	if (*head)
 	{
-		obj = PyList_GetItem(p, i);
-		printf("Element %ld: %s\n", i, Py_TYPE(obj)->tp_name);
-		i++;
+		while (cur)
+		{
+			tab[n] = cur->n;
+			cur = cur->next;
+			n++;
+		}
+
+		while (j < i / 2)
+		{
+			if (tab[j] == tab[i - j - 1])
+				j++;
+			else
+				return (0);
+		}
 	}
+	return (1);
 }
