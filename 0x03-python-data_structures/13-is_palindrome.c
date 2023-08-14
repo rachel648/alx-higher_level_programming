@@ -1,36 +1,27 @@
-#include "lists.h"
+#include <stdio.h>
+#include <Python.h>
 /**
- * palindrome - check if is palindrome with recursion
- * @l: l
- * @r: r
+ * print_python_list_info - shows info about Python lists
+ * @p: object
  *
- * Return: 1 palindrome, 0 not palindrome
+ * Return: 0
  */
-int palindrome(listint_t **l, listint_t *r)
+void print_python_list_info(PyObject *p)
 {
-	int response;
+	long int list_size, a, i;
 
-	if (r != NULL)
+	i = 0;
+	PyObject *obj;
+
+	list_size = PyList_Size(p);
+	a = ((PyListObject *)p)->allocated;
+
+	printf("[*] Size of the Python List = %ld\n", list_size);
+	printf("[*] Allocated = %ld\n", a);
+	while (i < list_size)
 	{
-		response = palindrome(l, r->next);
-		if (response != 0)
-		{
-			response = (r->n == (*l)->n);
-			*l = (*l)->next;
-			return (response);
-		}
-		return (0);
-
+		obj = PyList_GetItem(p, i);
+		printf("Element %ld: %s\n", i, Py_TYPE(obj)->tp_name);
+		i++;
 	}
-	return (1);
-}
-
-
-int is_palindrome(listint_t **head)
-{
-	if (head == NULL)
-	{
-		return (0);
-	}
-	return (palindrome(head, *head));
 }
