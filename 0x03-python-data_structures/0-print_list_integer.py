@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
-def print_list_integer(my_list=[]):
-    for n in my_list:
-        print("{:d}".format(n))
+def no_c(my_string):
+    new_string = ""
+    for c in my_string:
+        if c not in "Cc":
+            new_string += c
+    return new_string
