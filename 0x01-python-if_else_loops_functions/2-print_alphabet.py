@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-for i in range(97, 123):
-    print("{}".format(chr(i)), end="")
+def replace_in_list(my_list, idx, element):
+    if 0 <= idx < len(my_list):
+        my_list[idx] = element
+    return my_list
