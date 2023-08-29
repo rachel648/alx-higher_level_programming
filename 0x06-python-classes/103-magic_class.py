@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Defines a class MagicClass"""
 import math
-
-
 class MagicClass:
     """This represents a circle"""
     def __init__(self, radius=0):
