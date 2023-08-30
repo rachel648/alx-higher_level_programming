@@ -1,12 +1,8 @@
 #!/usr/bin/python3
-"""class Square that defines a square"""
+"""Private instance attribute: """
 
-class Square():
-    """square class with it's size and proper validation"""
-
-    def __init__(self, size=0):
-        if (type(size) is not int):
-            raise TypeError("size must be an integer")
-        elif (size < 0):
-            raise ValueError("size must be >= 0")
+class Square(object):
+    """class variable size"""
+    def __init__(self, size):
+        """initialize size"""
         self.__size = size
