@@ -1,11 +1,4 @@
 #!/usr/bin/python3
-
-def magic_string():
-    # function objects can have attributes, here at global count of calls
-    if hasattr(magic_string, 'calls'):
-        magic_string.calls += 1
-    else:
-        magic_string.calls = 1
-
-    return ', '.join(['rachel648'] * magic_string.calls)
-
+def magic_string(times=[0]):
+    times[0] = times[0] + 1
+    return "BestSchool" + (", BestSchool" * (times[0] - 1))
