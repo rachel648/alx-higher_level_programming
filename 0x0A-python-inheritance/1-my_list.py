@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-""" 0x0A. Python - Inheritance, task 1 """
+"""
+contains the MyList class
+"""
 
 
 class MyList(list):
-    """Custom list type intended to only contain integers.
-
-    """
+    """a subclass of list"""
+    def __init__(self):
+        """initializes the object"""
+        super().__init__()
 
     def print_sorted(self):
-        """Prints MyList lists in ascending order by value.
-
-        """
-        sorted_list = self[:]
-        sorted_list.sort()
-        print(sorted_list)
+        """prints the sorted list"""
+        print(sorted(self))
